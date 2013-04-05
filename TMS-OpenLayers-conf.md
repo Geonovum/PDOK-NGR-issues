@@ -11,7 +11,7 @@ var matrixIds = [];
     var resolutions = [3440.64, 1720.32, 860.16, 430.08, 215.04, 
         107.52, 53.76, 26.88, 13.44, 6.72, 3.36, 1.68, 0.84, 0.42, 0.21];
 ```   
-(Resolutions are defined on page 7 of the DOK Manual [PDF](https://www.pdok.nl/sites/default/files/bibliotheek/handleiding_pdok_gebruik_10_dec_2012_v1_1.pdf))
+(Resolutions are defined on page 7 of the PDOK Manual [PDF](https://www.pdok.nl/sites/default/files/bibliotheek/handleiding_pdok_gebruik_10_dec_2012_v1_1.pdf))
 
 Vervolgens kun je dan een tms laag definieren als:
 
