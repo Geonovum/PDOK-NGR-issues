@@ -1,6 +1,7 @@
-OpenLayers TMS parameters for ALL PDOK services
-===============================================
+The TMS resolutions are defined on page 7 of the PDOK Manual ([PDF](https://www.pdok.nl/sites/default/files/bibliotheek/handleiding_pdok_gebruik_10_dec_2012_v1_1.pdf)).
 
+OpenLayers
+==========
 Allereerst dien je op LAYER niveau (dus niet perse op de map options) onderstaande "randvoorwaarden te definieren. Deze zullen worden gebruikt door ALLE pdok tms lagen
 
 ```javascript
@@ -11,7 +12,6 @@ var matrixIds = [];
     var resolutions = [3440.64, 1720.32, 860.16, 430.08, 215.04, 
         107.52, 53.76, 26.88, 13.44, 6.72, 3.36, 1.68, 0.84, 0.42, 0.21];
 ```   
-(Resolutions are defined on page 7 of the PDOK Manual [PDF](https://www.pdok.nl/sites/default/files/bibliotheek/handleiding_pdok_gebruik_10_dec_2012_v1_1.pdf))
 
 Vervolgens kun je dan een tms laag definieren als:
 
@@ -34,3 +34,10 @@ var mijnlaag = new OpenLayers.Layer.TMS(
   );
 ```
 En deze laag dan uiteraard toevoegen aan je OpenLayers.Map
+
+Flamingo 4
+==========
+
+Configuration parameters for the geo content management solution [Flamingo 4](http://flamingo.b3p.nl/trac/).
+
+![Flamingo 4 TMS configuration parameters](https://f.cloud.github.com/assets/1814164/350385/7707eab6-a01a-11e2-9d07-0c27a27ec11a.png)
