@@ -1,0 +1,151 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Nationaal GeoRegister Developer pagina &mdash; NationaalGeoRegister documentatie 1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/cloud.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/jquery.cookie.js"></script>
+    <script type="text/javascript" src="_static/cloud.js"></script>
+    <link rel="top" title="NationaalGeoRegister documentatie 1 documentation" href="index.html" />
+    <link rel="next" title="Tile Map Service (TMS)" href="tms.html" />
+    <link rel="prev" title="Welcome to NationaalGeoRegister documentatie’s documentation!" href="index.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <div class="relbar-top">
+        
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="tms.html" title="Tile Map Service (TMS)"
+             accesskey="N">next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to NationaalGeoRegister documentatie’s documentation!"
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">NationaalGeoRegister documentatie 1 documentation</a> &raquo;</li>
+ 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <p>..Developers page Nationaal Georegister
+..Licence CC</p>
+<div class="section" id="nationaal-georegister-developer-pagina">
+<h1>Nationaal GeoRegister Developer pagina<a class="headerlink" href="#nationaal-georegister-developer-pagina" title="Permalink to this headline">¶</a></h1>
+<p>De developer pagina van het nationaal georegister bevat een aantal tips om met data en services uit het register aan de slag te gaan.</p>
+<p>Het register is een catalogus met informatie over vooral ruimtelijke datasets en services die door voornamelijk overheden ter beschikking gesteld worden.</p>
+<p>In het zoekresultaat wordt middels iconen aangegeven welke API&#8217;s er beschikbaar zijn voor een bepaalde dataset.</p>
+<p>Het register maakt gebruik van open standaarden (api-beschrijvingen) die door dan wel [W3C](<a class="reference external" href="http://www.w3c.org">http://www.w3c.org</a>), [OGC](<a class="reference external" href="http://www.opengeospatial.org">http://www.opengeospatial.org</a>), ISO, [JRC](<a class="reference external" href="http://ec.europa.eu/dgs/jrc">http://ec.europa.eu/dgs/jrc</a>) of [geonovum](<a class="reference external" href="http://geonovum.nl">http://geonovum.nl</a>) beheerd worden.
+Hieronder een lijst van standaarden met korte omschrijving en links om verder te lezen.</p>
+<p><strong>W3C:RDF</strong>
+De catalogus kan geindexeerd worden middels Linked Data RDF, ten behoeve van semantic web applicaties. Het register biedt momenteel (nog) geen SPARQL end-point. Het RDF endpoint is <a class="reference external" href="http://www.nationaalgeoregister.nl/geonetwork/srv/dut/rdf.search">http://www.nationaalgeoregister.nl/geonetwork/srv/dut/rdf.search</a>.</p>
+<p><strong>W3C:RSS</strong>
+De catalogus kan ontsloten worden middels RSS. Diverse RSS endpoints zijn gepubliceerd in het open search description document op <a class="reference external" href="http://www.nationaalgeoregister.nl/geonetwork/srv/dut/portal.opensearch">http://www.nationaalgeoregister.nl/geonetwork/srv/dut/portal.opensearch</a>. Inspire heeft een aantal additionele vereisten opgesteld ten behoeve van interoperabiliteit rond file-downloads via Atom.</p>
+<p><strong>OGC:CSW</strong>
+OGC:CSW is de catalugus standaard van OGC. Meer info over CSW vind je op (http://www.opengeospatial.org/standards/cat). In veel gevallen ben je echter sneller af als je een bestaande bibliotheek gebruikt om CSW te ontsluiten: [OpenLayers](http://dev.openlayers.org/docs/files/OpenLayers/Protocol/CSW/v2_0_2-js.html) of [GXP](http://gxp.opengeo.org/master/examples/catalogue.html) of [Geonetwork Widgets](http://nationaalgeoregister.nl/geonetwork/apps/js/GeoNetwork/examples).
+Ook [Esri](https://github.com/Esri/geoportal-server/tree/master/components/desktop/CswClient/trunk) en [QGIS](http://hub.qgis.org/projects/cswclient) kennen CSW-ondersteuning via het laden van een plug-in, beide plug-ins zijn beschikbaar als opensource.</p>
+<p><strong>OGC:WMS</strong>
+Web Map Services is een rest-api om kaartbeelden uit te wisselen als bitmap. Een volledige beschrijving van WMS staat hier (<a class="reference external" href="http://www.opengeospatial.org/standards/wms">http://www.opengeospatial.org/standards/wms</a>). WMS kent (minimaal) 3 operaties: GetCapabilities (retourneert een lijst van beschikbare kaartlagen, projecties, formaten enz), GetMap (retourneert een kaart afbeelding) en getFeatureInfo (geeft attribuutgegevens van het aangeklikte object). Daarnaast wordt optioneel ondersteund: GetLegendGraphic. WMS is eenvoudig te consumeren met bibliotheken als [OpenLayers](<a class="reference external" href="http://www.openlayers.org">http://www.openlayers.org</a>), Flamingo, Leaflet. Ook is WMS standaard te openen in QGIS, Esri, Udig, Mapwindow enz.</p>
+<p><strong>OGC:WMTS</strong>
+Web Map Tile Services zijn vergelijkbaar met WMS, echter in dit geval is het kaartbeeld opgeknipt in tegels volgens een gedefinieerd grid. De tegels worden al dan niet gecached aan serverzijde voor hergebruik.
+<a class="reference external" href="http://www.opengeospatial.org/standards/wmts">http://www.opengeospatial.org/standards/wmts</a>. De operaties zijn vergelijkbaar, echter het capabilities document is uitgebreid met het gebruikte grid (per projectie). WMTS wordt ondersteund door het overgrote deel van de hierboven genoemde WMS clients. Voor Esri is er een plug-in beschikbaar voor wmts [arcbrutile](<a class="reference external" href="http://arcbrutile.codeplex.com/">http://arcbrutile.codeplex.com/</a>). Geonovum heeft ten behoeve van interoperabiliteit binnen Nederland een tiling richtlijn voor RD_new (epsg:28992) vastgesteld (http://www.geonovum.nl/sites/default/files/<a href="#id1"><span class="problematic" id="id2">Nederlandse_richtlijn_tiling_</span></a>-_versie_1.0.pdf).</p>
+<p><strong>OGC:WFS</strong>
+Web Feature Services is een rest-api om vector data uit te wisselen. Een volledige beschrijving van WFS staat hier (<a class="reference external" href="http://www.opengeospatial.org/standards/wfs">http://www.opengeospatial.org/standards/wfs</a>). Belangrijke operaties zijn GetCapabilities, DescribeFeatureType, GetFeature. Een getFeature request initieert de feature download. Deze operatie kan gecombineerd worden met ruimtelijke of attribuut filters en een output-formaat keuze (afhankelijk van implementatie: bv GML, Shp, json, kml, csv)</p>
+<p><strong>iso:19139</strong>
+[19139](<a class="reference external" href="http://www.iso.org/iso/catalogue_detail.htm?csnumber=32557">http://www.iso.org/iso/catalogue_detail.htm?csnumber=32557</a>) is een schema wat de inhoud van metadata documenten beschrijft die middels CSW uitgewisseld worden. Een alternatief voor iso19139 is Dublic Core. Bij het uitlezen van een CSW antwoord dient nagegaan te worden welk schema gebruikt wordt (of in de request dent een target schema meegegeven te worden). Middels het gebruikte schema is het CSW antwoord om te zetten naar bruikbare concepten als titel, auteur, datum. Iso19139 wordt gebruikt om metadata van een dataset (iso19115) of metadata van een service (iso19119) vast te leggen. Geonovum heeft een aantal Nederlandse profielen voor metadata vastgesteld om interoperabiliteit in het Nederlandse domein te faciliteteren (<a class="reference external" href="http://www.geonovum.nl/geostandaarden/metadata/destandaarden">http://www.geonovum.nl/geostandaarden/metadata/destandaarden</a>).</p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Welcome to NationaalGeoRegister documentatie&#8217;s documentation!</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="tms.html"
+                        title="next chapter">Tile Map Service (TMS)</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/ngr-dev-page.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="tms.html" title="Tile Map Service (TMS)"
+             >next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to NationaalGeoRegister documentatie’s documentation!"
+             >previous</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">NationaalGeoRegister documentatie 1 documentation</a> &raquo;</li>
+ 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer">
+        &copy; Copyright 2013, Simeon Nedkov.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.2.
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>
