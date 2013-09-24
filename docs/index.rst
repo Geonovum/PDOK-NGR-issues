@@ -11,6 +11,7 @@ Contents:
 .. toctree::
    :maxdepth: 2
 
+   ngr-dev-page
    tms
 
 Indices and tables
