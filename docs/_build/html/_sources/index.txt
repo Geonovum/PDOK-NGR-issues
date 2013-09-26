@@ -12,6 +12,7 @@ Contents:
    :maxdepth: 2
 
    ngr-dev-page
+   ngr-dev-page-csw
    tms
 
 Indices and tables

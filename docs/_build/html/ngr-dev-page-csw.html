@@ -1,0 +1,195 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>CSW Webservice NGR &mdash; NationaalGeoRegister documentatie 1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/cloud.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Noticia+Text|Open+Sans|Droid+Sans+Mono" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/jquery.cookie.js"></script>
+    <script type="text/javascript" src="_static/cloud.js"></script>
+    <link rel="top" title="NationaalGeoRegister documentatie 1 documentation" href="index.html" />
+    <link rel="next" title="Tile Map Service (TMS)" href="tms.html" />
+    <link rel="prev" title="Nationaal GeoRegister Developer pagina" href="ngr-dev-page.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <div class="relbar-top">
+        
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="tms.html" title="Tile Map Service (TMS)"
+             accesskey="N">next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="ngr-dev-page.html" title="Nationaal GeoRegister Developer pagina"
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">NationaalGeoRegister documentatie 1 documentation</a> &raquo;</li>
+ 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="csw-webservice-ngr">
+<h1>CSW Webservice NGR<a class="headerlink" href="#csw-webservice-ngr" title="Permalink to this headline">¶</a></h1>
+<p>De developer pagina van het Nationaal Georegister (NGR) bevat een aantal tips om met data en services uit het register aan de slag te gaan. Deze pagina bevat meer informatie over de CSW interface van het NGR.</p>
+<p>Het register is een catalogus met informatie over vooral ruimtelijke datasets en services die door voornamelijk overheden ter beschikking gesteld worden. OGC:CSW is de catalogus standaard van OGC. De CSW requests kunnen via HTTP GET of XMl over HTTP POST verstuurd worden.</p>
+<p>De CSW specificatie is vrij groot en bescrhijft veel functionaliteit. Deze pagina beschrijft hoe je de meest voorkomende operaties kan uitvoeren. Meer info over CSW vind je op (<a class="reference external" href="http://www.opengeospatial.org/standards/cat">http://www.opengeospatial.org/standards/cat</a>).</p>
+</div>
+<div class="section" id="csw-requests">
+<h1>CSW requests<a class="headerlink" href="#csw-requests" title="Permalink to this headline">¶</a></h1>
+<p><strong>Operaties</strong>
+De belangrijkste operaties om metadata op te vragen zijn:</p>
+<ol class="arabic simple">
+<li>GetCapabilities: voor het bekijken van de mogelijkheden van de service. Deze operatie kan handig zijn om te zien welke filters ondersteund worden bijvorrbeeld.</li>
+<li>GetRecords: om meerdere metadata documenten (records) op te vragen, bijvoorbeeld met een zoekfilter.</li>
+<li>GetRecordById: om 1 metadata document op te vragen, via het metadata ID.</li>
+</ol>
+<p>De CSW requests kunnen via HTTP GET of XMl over HTTP POST verstuurd worden. Deze requests worden hieronder behandeld.</p>
+<p>Op de website van GeoNetwork is meer informatie te vinden over CSW:</p>
+<p><a class="reference external" href="http://www.geonetwork-opensource.org/manuals/2.8.0/eng/developer/xml_services/csw_services.html">http://www.geonetwork-opensource.org/manuals/2.8.0/eng/developer/xml_services/csw_services.html</a></p>
+<p>Hieronder volgen praktische voorbeelden voor het NGR.</p>
+</div>
+<div class="section" id="getcapabilities-opvragen-wat-de-server-kan">
+<h1>GetCapabilities: opvragen wat de server kan<a class="headerlink" href="#getcapabilities-opvragen-wat-de-server-kan" title="Permalink to this headline">¶</a></h1>
+<p>Door het volgende HTTP GET request te versturen, kan je zien wat de server aan fucntionaliteit biedt:</p>
+<p><a class="reference external" href="http://nationaalgeoregister.nl/geonetwork/srv/dut/csw?request=GetCapabilities&amp;service=CSW">http://nationaalgeoregister.nl/geonetwork/srv/dut/csw?request=GetCapabilities&amp;service=CSW</a></p>
+<p>Het antwoord is een XML document, conform de CSW 2.0.2 specificatie. Het somt de operaties en filters op die de CSW ondersteunt en de URLs voor het versturen van de requests. Daarnaast bevat het document de beschikbare formaten om metadata op te vragen. Het voert te ver de gehele structuur van het document uit te leggen.</p>
+</div>
+<div class="section" id="opvragen-van-metadata-records">
+<h1>Opvragen van metadata records<a class="headerlink" href="#opvragen-van-metadata-records" title="Permalink to this headline">¶</a></h1>
+<p><strong>Omgaan met veel metadata</strong>
+Opvragen in batches / pagineren. Gebruik de MaxRecords parameter en de XXXXXX parameter, om te voorkomen dat alles terug komt. Dit is namelijk veel. Voorbeeld van MaxRecords:</p>
+<p>En vervolgens de volgende XXX.</p>
+<p><strong>Aantal zoekresultaten opvragen</strong>
+Via parameter hits.</p>
+<p><strong>Voorbeelden</strong></p>
+<p><strong>Request parameters</strong></p>
+<p><strong>Vragen om specifieke metadata formaten</strong>
+Vraag om ISO-metadata
+Vraag om Dublin Core metadata (beperkte set)</p>
+</div>
+<div class="section" id="zoeken-via-filters">
+<h1>Zoeken via filters<a class="headerlink" href="#zoeken-via-filters" title="Permalink to this headline">¶</a></h1>
+<p>Het NGR staat allerlei zoekopdrachten toe, ook via de CSW. De meestgebruikte is alle tekst doorzoeken.</p>
+<p>Voor heel gerichte zoekopdrachten, gebruik een van de filters uit de CSW ():
+&lt;todo: lijst filters&gt;</p>
+</div>
+<div class="section" id="inspire-metadata">
+<h1>INSPIRE metadata<a class="headerlink" href="#inspire-metadata" title="Permalink to this headline">¶</a></h1>
+<p>Op zoek naar alleen INSPIRE metadata? Gebruik dan in plaats van de URL:
+<a class="reference external" href="http://nationaalgeoregister.nl/geonetwork/srv/dut/csw">http://nationaalgeoregister.nl/geonetwork/srv/dut/csw</a></p>
+<p><a class="reference external" href="http://nationaalgeoregister.nl/geonetwork/srv/dut/inspire">http://nationaalgeoregister.nl/geonetwork/srv/dut/inspire</a></p>
+<p>Dit laatste (eindigend op inspire) is het zoenaanmde INSPIRE endpoint. Dit is een gewone CSW, maar de inhoud betreft alleen de metadata voor INSPIRE.</p>
+</div>
+<div class="section" id="tooling-met-csw-ondersteuning">
+<h1>Tooling met CSW ondersteuning<a class="headerlink" href="#tooling-met-csw-ondersteuning" title="Permalink to this headline">¶</a></h1>
+<p>In veel gevallen ben je echter sneller af als je een bestaande bibliotheek gebruikt om CSW te ontsluiten: OpenLayers(<a class="reference external" href="http://dev.openlayers.org/docs/files/OpenLayers/Protocol/CSW/v2_0_2-js.html">http://dev.openlayers.org/docs/files/OpenLayers/Protocol/CSW/v2_0_2-js.html</a>) of GXP(<a class="reference external" href="http://gxp.opengeo.org/master/examples/catalogue.html">http://gxp.opengeo.org/master/examples/catalogue.html</a>) of Geonetwork Widgets(<a class="reference external" href="http://nationaalgeoregister.nl/geonetwork/apps/js/GeoNetwork/examples">http://nationaalgeoregister.nl/geonetwork/apps/js/GeoNetwork/examples</a>).
+Ook Esri(<a class="reference external" href="https://github.com/Esri/geoportal-server/tree/master/components/desktop/CswClient/trunk">https://github.com/Esri/geoportal-server/tree/master/components/desktop/CswClient/trunk</a>) en QGIS(<a class="reference external" href="http://hub.qgis.org/projects/cswclient">http://hub.qgis.org/projects/cswclient</a>) kennen CSW-ondersteuning via het laden van een plug-in, beide plug-ins zijn beschikbaar als opensource.</p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <div class="sphinxlocaltoc">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">CSW Webservice NGR</a></li>
+<li><a class="reference internal" href="#csw-requests">CSW requests</a></li>
+<li><a class="reference internal" href="#getcapabilities-opvragen-wat-de-server-kan">GetCapabilities: opvragen wat de server kan</a></li>
+<li><a class="reference internal" href="#opvragen-van-metadata-records">Opvragen van metadata records</a></li>
+<li><a class="reference internal" href="#zoeken-via-filters">Zoeken via filters</a></li>
+<li><a class="reference internal" href="#inspire-metadata">INSPIRE metadata</a></li>
+<li><a class="reference internal" href="#tooling-met-csw-ondersteuning">Tooling met CSW ondersteuning</a></li>
+</ul>
+
+  </div>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="ngr-dev-page.html"
+                        title="previous chapter">Nationaal GeoRegister Developer pagina</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="tms.html"
+                        title="next chapter">Tile Map Service (TMS)</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/ngr-dev-page-csw.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="tms.html" title="Tile Map Service (TMS)"
+             >next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="ngr-dev-page.html" title="Nationaal GeoRegister Developer pagina"
+             >previous</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">NationaalGeoRegister documentatie 1 documentation</a> &raquo;</li>
+ 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer">
+        &copy; Copyright 2013, Simeon Nedkov.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>
