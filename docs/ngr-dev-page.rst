@@ -1,4 +1,3 @@
-
 Nationaal GeoRegister Developer pagina
 ======================================
 
@@ -18,7 +17,7 @@ Hieronder een lijst van standaarden met korte omschrijving en links om verder te
 
 De catalogus kan geindexeerd worden middels Linked Data RDF, ten behoeve van semantic web applicaties. Het register biedt momenteel (nog) geen SPARQL end-point. Het RDF endpoint is http://www.nationaalgeoregister.nl/geonetwork/srv/dut/rdf.search. Voorbeeld:
 
-.. code-block::
+.. code::
 
         http://www.nationaalgeoregister.nl/geonetwork/srv/dut/rdf.search?any=****
 
