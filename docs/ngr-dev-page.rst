@@ -8,20 +8,20 @@ Het register is een catalogus met informatie over vooral ruimtelijke datasets en
 In het zoekresultaat wordt middels iconen aangegeven welke API's er beschikbaar zijn voor een bepaalde dataset.
 
 API's in het Register
-==========
+=====================
 
 Het register maakt gebruik van open standaarden (api-beschrijvingen) die door dan wel W3C(http://www.w3c.org), OGC(http://www.opengeospatial.org), ISO, JRC (http://ec.europa.eu/dgs/jrc) of geonovum (http://geonovum.nl) beheerd worden. 
 Hieronder een lijst van standaarden met korte omschrijving en links om verder te lezen.
 
 **W3C:RDF**
 
-De catalogus kan geindexeerd worden middels Linked Data RDF, ten behoeve van semantic web applicaties. Het register biedt momenteel (nog) geen SPARQL end-point. Het RDF endpoint is http://www.nationaalgeoregister.nl/geonetwork/srv/dut/rdf.search. Voorbeeld:
+De catalogus kan geindexeerd worden middels Linked Data RDF, ten behoeve van semantic web applicaties. Het register biedt momenteel (nog) geen SPARQL end-point. Het RDF endpoint is http://www.nationaalgeoregister.nl/geonetwork/srv/dut/rdf.search. Voorbeeld: zoek alle datasets met 'pand':
 
 .. code::
 
-        http://www.nationaalgeoregister.nl/geonetwork/srv/dut/rdf.search?any=****
+        http://www.nationaalgeoregister.nl/geonetwork/srv/dut/rdf.search?any=pand
 
-Opmerking:  Uiteindelijk moeten de URIs die in het NGR gebruikt worden geharmoniseerd zijn met bijvoorbeeld PDOK en de stelselcatalogus zodat het mogelijk wordt eenvoudig tussen metadata definities en objecten heen en weer te navagiren. Deze harmonisatie moet nog plaats vinden.
+**Opmerking:** Uiteindelijk moeten de URIs die in het NGR gebruikt worden geharmoniseerd zijn met bijvoorbeeld PDOK en de stelselcatalogus zodat het mogelijk wordt eenvoudig tussen metadata definities en objecten heen en weer te navagiren. Deze harmonisatie moet nog plaats vinden.
 
 **W3C:RSS**
 
