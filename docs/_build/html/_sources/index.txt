@@ -9,9 +9,12 @@ Welcome to NationaalGeoRegister documentatie's documentation!
 Contents:
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
 
+   services
    tms
+
+   data
 
 Indices and tables
 ==================
