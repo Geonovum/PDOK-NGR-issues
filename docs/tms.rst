@@ -1,5 +1,5 @@
 ***********************
-Tiled Map Service (TMS) 
+Tile Map Service (TMS) 
 ***********************
 
 
