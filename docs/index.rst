@@ -12,10 +12,8 @@ Contents:
    :maxdepth: 3
 
    ngr-dev-page
-   ngr-dev-page-csw
    services
-   tms
-
+   tutorials
    data
 
 Indices and tables
