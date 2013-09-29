@@ -208,3 +208,19 @@ Configuration parameters for the geo content management solution `Flamingo 4 <ht
 
 .. image:: https://f.cloud.github.com/assets/1814164/350385/7707eab6-a01a-11e2-9d07-0c27a27ec11a.png
     :width: 800px
+
+.. _wfs:
+
+*************************
+Web Feature Service (WFS)
+*************************
+
+GetCapabilities
+===============
+
+TODO
+
+GetFeature
+==========
+
+TODO
