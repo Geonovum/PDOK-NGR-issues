@@ -32,17 +32,35 @@ GetCapabilities
 ---------------
 Middels een GetCapabilities request kan opgevraagd worden wat de server kan. Door het volgende HTTP GET request te versturen, kan je zien wat de server aan functionaliteit biedt:
 
-http://nationaalgeoregister.nl/geonetwork/srv/dut/csw?request=GetCapabilities&service=CSW
+::
 
-Het antwoord is een XML document, conform de CSW 2.0.2 specificatie. Het somt de operaties en filters op die de CSW ondersteunt en de URLs voor het versturen van de requests. Daarnaast bevat het document de beschikbare formaten om metadata op te vragen. Het voert te ver de gehele structuur van het document uit te leggen.
+    http://nationaalgeoregister.nl/geonetwork/srv/dut/csw?
+    request=GetCapabilities&
+    service=CSW
+
+Het `antwoord <http://nationaalgeoregister.nl/geonetwork/srv/dut/csw?request=GetCapabilities&service=CSW>`_ is een XML document, conform de CSW 2.0.2 specificatie. Het somt de operaties en filters op die de CSW ondersteunt en de URLs voor het versturen van de requests. Daarnaast bevat het document de beschikbare formaten om metadata op te vragen. Het voert te ver de gehele structuur van het document uit te leggen.
 
 GetRecords
 ----------
 Doorzoeken en opvragen van metadata records. Om metadata op te vragen met GetRecords, kan je bijvoorbeeld dit HTTP GET request gebruiken:
 
-http://nationaalgeoregister.nl/geonetwork/srv/dut/inspire?service=CSW&version=2.0.2&request=GetRecords&namespace=xmlns%28csw=http://www.opengis.net/cat/csw%29&resultType=results&outputSchema=http://www.opengis.net/cat/csw/2.0.2&outputFormat=application/xml&maxRecords=10&typeNames=csw:Record&elementSetName=full&constraintLanguage=CQL_TEXT&constraint_language_version=1.1.0&constraint=AnyText+LIKE+%27%25water%25%27
+::
 
-Dit geeft metadata terug die over "water" gaat. In een standaard CSW formaat, dat Dublin Core elementen bevat.
+    http://nationaalgeoregister.nl/geonetwork/srv/dut/inspire?
+    service=CSW&
+    version=2.0.2&
+    request=GetRecords&
+    namespace=xmlns%28csw=http://www.opengis.net/cat/csw%29&
+    resultType=results&
+    outputSchema=http://www.opengis.net/cat/csw/2.0.2&outputFormat=application/xml&
+    maxRecords=10&
+    typeNames=csw:Record&
+    elementSetName=full&
+    constraintLanguage=CQL_TEXT&
+    constraint_language_version=1.1.0&
+    constraint=AnyText+LIKE+%27%25water%25%27
+
+Dit geeft `metadata terug <http://nationaalgeoregister.nl/geonetwork/srv/dut/inspire?service=CSW&version=2.0.2&request=GetRecords&namespace=xmlns%28csw=http://www.opengis.net/cat/csw%29&resultType=results&outputSchema=http://www.opengis.net/cat/csw/2.0.2&outputFormat=application/xml&maxRecords=10&typeNames=csw:Record&elementSetName=full&constraintLanguage=CQL_TEXT&constraint_language_version=1.1.0&constraint=AnyText+LIKE+%27%25water%25%27>`_ die over "water" gaat. In een standaard CSW formaat, dat Dublin Core elementen bevat.
 
 Het request bevat veel parameters. De CSW specificatie beschrijft al deze parameters. Hieronder volgt een behandeling van de belangrijkste parameters als je zelf via HTTP requests metadata wilt doorzoeken / opvragen:
 
